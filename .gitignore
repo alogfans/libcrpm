@@ -1,0 +1,9 @@
+cmake-build-debug
+cmake-build-release
+build
+*.a
+*.so
+*.o
+*.ko
+.vscode
+.idea
