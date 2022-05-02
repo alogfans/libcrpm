@@ -30,6 +30,8 @@ The `flush` directory includes a kernel module for wbinvd instruction invocation
 2. `mkdir build; cd build; cmake ..; make -j`
 3. `mkdir /mnt/pmem0/renfeng`
 
+The path is hard-coded in the source code. You may have to replace it yourself.
+
 ### Evaluate `libcrpm`
 
 We provide test scripts for generating datasets and evaluating end-to-end performance of C++ STL data structures (`map` and `unordered_map`).
