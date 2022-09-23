@@ -6,7 +6,15 @@
 
 For more details, please refer to our paper:
 
-[DAC'22] libcrpm: Improving the Checkpoint Performance of NVM. Feng Ren, Kang Chen and Yongwei Wu, Tsinghua University.
+```
+@inproceedings{ren2022libcrpm,
+  title={libcrpm: improving the checkpoint performance of NVM},
+  author={Ren, Feng and Chen, Kang and Wu, Yongwei},
+  booktitle={Proceedings of the 59th ACM/IEEE Design Automation Conference},
+  pages={811--816},
+  year={2022}
+}
+```
 
 ## System Requirements
 
@@ -28,7 +36,7 @@ The `flush` directory includes a kernel module for wbinvd instruction invocation
 
 1. `cd libcrpm`
 2. `mkdir build; cd build; cmake ..; make -j`
-3. `mkdir /mnt/pmem0/renfeng`
+3. `mkdir /mnt/pmem0/libcrpm`
 
 The path is hard-coded in the source code. You may have to replace it yourself.
 
@@ -37,14 +45,18 @@ The path is hard-coded in the source code. You may have to replace it yourself.
 We provide test scripts for generating datasets and evaluating end-to-end performance of C++ STL data structures (`map` and `unordered_map`).
 1. `bash ../script/prepare-dataset.sh`
 2. `bash ../script/perf-test.sh` 
-When each test completes, there is one line of output. The last two fields are latency and throughput of this test.
+When each test completes, there is one line of output. The last two fields are execution time (nanoseconds) and throughput of this test (ops/sec).
 
 You can also use the following command for run custom tests:
 ```
 ./tests/benchmark -d <dataset-path> -t <threads> 
                   -p <populated_records_before_execution> 
-                  -i <N: a-checkpoint-per-N-operations>
+                  -i <checkpoint-interval>
                   -b <stl-map|stl-unordered-map> -e default -a default
 ```
 
 As the starting point, we recommend you to read the `tests` directory for understanding the programming interface of `libcrpm`. It is no hard to transform your application to be recoverable.
+
+### Contact Authors
+Feel free to contact the authors of `libcrpm` if you have trouble in installation and evaluation:
+> Feng Ren <alogfans@gmail.com>

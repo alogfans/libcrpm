@@ -112,7 +112,7 @@ int main(int argc, char** argv)
    initSubsystems();
 
    char path[256];
-   sprintf(path, "/mnt/pmem0/renfeng/comd-%d-%d", getMyRank(), getNRanks());
+   sprintf(path, "/mnt/pmem0/libcrpm/comd-%d-%d", getMyRank(), getNRanks());
    crpm_option_t opt;
    crpm_init_option(&opt);
    opt.create = 1;

@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
   char path[256];
-  sprintf(path, "/mnt/pmem0/renfeng/hpccg-%d-%d", rank, size);
+  sprintf(path, "/mnt/pmem0/libcrpm/hpccg-%d-%d", rank, size);
   crpm_option_t opt;
   crpm_init_option(&opt);
   opt.create = 1;

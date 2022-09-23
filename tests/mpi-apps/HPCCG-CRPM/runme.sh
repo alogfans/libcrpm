@@ -1,17 +1,17 @@
 #!/bin/bash
 
 function run_bench() {
-  rm -rf /mnt/pmem0/renfeng/*
+  rm -rf /mnt/pmem0/libcrpm/*
   mpirun -quiet --mca btl vader,self --mca pml ob1 -n 8 -rf rank ./test_HPCCG $1 $1 $1 $2
 }
 
 function run_bench_recovery() {
-  rm -rf /mnt/pmem0/renfeng/*
+  rm -rf /mnt/pmem0/libcrpm/*
   mpirun -quiet --mca btl vader,self --mca pml ob1 -n 8 -rf rank timeout -s KILL $3 ./test_HPCCG $1 $1 $1 $2
   mpirun -quiet --mca btl vader,self --mca pml ob1 -n 8 -rf rank ./test_HPCCG $1 $1 $1 $2
 }
 
-make -j > /dev/null
+make > /dev/null
 
 # Measure normal execution time
 run_bench 160 5

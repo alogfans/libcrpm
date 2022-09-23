@@ -14,7 +14,7 @@
 
 namespace crpm {
     const static size_t kMaxThreads = 128;
-    const static char *kDefaultMappingPath = "/mnt/pmem0/renfeng/crpm";
+    const static char *kDefaultMappingPath = "/mnt/pmem0/libcrpm/crpm";
 
     struct BenchmarkOption {
         unsigned int threads;

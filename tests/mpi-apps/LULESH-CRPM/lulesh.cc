@@ -2742,7 +2742,7 @@ int main(int argc, char *argv[])
 #endif
 
    char path[256];
-   sprintf(path, "/mnt/pmem0/renfeng/lulesh-%d-%d", myRank, numRanks);
+   sprintf(path, "/mnt/pmem0/libcrpm/lulesh-%d-%d", myRank, numRanks);
    crpm_option_t opt;
    crpm_init_option(&opt);
    opt.create = 1;
